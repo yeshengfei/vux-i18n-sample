@@ -5,7 +5,8 @@
       <h1> </h1>
     </div>
     <group title="cell demo">
-      <cell title="VUX" value="cool" is-link></cell>
+      <cell :title="$t('message.hello')" value="cool" is-link></cell>
+      <cell title="点击切换" is-link @click.native="handleClick"></cell>
     </group>
   </div>
 </template>
@@ -25,6 +26,11 @@ export default {
       // preserves its current state and we are modifying
       // its initial state.
       msg: 'Hello World!'
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$i18n.locale = this.$i18n.locale === 'ja' ? 'en' : 'ja'
     }
   }
 }
